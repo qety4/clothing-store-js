@@ -1,0 +1,22 @@
+.home{
+    .slider-home{
+        margin: 1rem 0;
+        display: flex;
+        justify-content: center;
+    }
+    .variety-title{
+        margin: 0 0 4rem 0;
+        text-align: center;
+        font-size: 24px;
+        letter-spacing: 0.8rem;
+    }
+    .featured-products-title{
+        margin: 4rem 0 2.8rem 0;
+        text-align: center;
+        font-size: 24px;
+        letter-spacing: 1rem;
+    }
+    .featured-products-home-container{
+        width: 100%;
+    }
+}

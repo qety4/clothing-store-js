@@ -8,7 +8,7 @@ import './nav.styles.scss'
 const Nav = () => {
 
     return (
-        <>
+        <main>
             <div className='nav'>
                 <div className='nav-search'>
                     <input className='search-input' type="text" />
@@ -16,7 +16,7 @@ const Nav = () => {
                     <p>SHOP</p>
                 </div>
                 <div className='nav-logo-container'>
-                    <p className='nav-logo'>Logo</p>
+                    <p className='nav-logo'>logo</p>
                 </div>
                 <div className='nav-right'>
                     <p className='user'>LOGIN</p>
@@ -33,7 +33,7 @@ const Nav = () => {
 
             </div>
             <Outlet />
-        </>
+        </main>
     )
 }
 
