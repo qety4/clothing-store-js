@@ -5,18 +5,24 @@
         justify-content: center;
     }
     .variety-title{
-        margin: 0 0 4rem 0;
+        margin: 2rem 0 3.8rem 0;
         text-align: center;
-        font-size: 24px;
-        letter-spacing: 0.8rem;
+        font-size: 33px;
+        letter-spacing: 1.1rem;
     }
     .featured-products-title{
-        margin: 4rem 0 2.8rem 0;
+        margin: 5rem 0 3.2rem 0;
         text-align: center;
-        font-size: 24px;
+        font-size: 33px;
         letter-spacing: 1rem;
     }
     .featured-products-home-container{
         width: 100%;
+    }
+    .other-title{
+        text-align: center;
+        font-size: 33px;
+        letter-spacing: 1rem;
+        margin: 0 0 3rem 0;
     }
 }

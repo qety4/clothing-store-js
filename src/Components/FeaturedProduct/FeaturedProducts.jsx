@@ -14,12 +14,12 @@ const FeaturedProducts = () => {
                             <div key={index} className="featured-product-container">
                                 <img className='product-image' src={item.url} alt="" />
                                 <p className="product-title">
-                                    {item.title}
+                                    {item.title.toUpperCase()}
                                 </p>
                                 <p className="product-about">
                                     {item.about}
                                 </p>
-                                <p className="item-price">
+                                <p className="product-price">
                                     {item.price}
                                 </p>
                             </div>

@@ -17,8 +17,13 @@ const Slider = () => {
 
     return (
         <div className="slider">
+            <div className='slider-bg'>
+                <div className='slider-bg-img'>
+
+                </div>
+            </div>
             <div className='title'>
-                <p>Title</p>
+                <p>{(slides[currentIndex].title).toUpperCase()}</p>
             </div>
             <div className="slide">
 
@@ -44,7 +49,7 @@ const Slider = () => {
                 </div>
             </div>
             <div className='about'>
-                <p>About</p>
+                <p>{slides[currentIndex].about}</p>
             </div>
 
         </div>

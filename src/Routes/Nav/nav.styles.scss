@@ -2,41 +2,69 @@
   margin: 0;
   padding: 0;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
 .nav {
-  padding: 2rem 3%;
+  padding: 3.8rem 3%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   .nav-logo {
-    font-size: 30px;
+    font-size: 28px;
   }
-  .nav-search{
-    width: 10rem;
+
+  .nav-left {
+    width: 33%;
     display: flex;
     align-items: center;
-    font-size: 24px;
+    justify-content: space-between;
+    
+    .nav-search {
+      display: flex;
+      .search-input {
+        border-radius: 10px;
+        height: 24px;
+        width: 18rem;
+        border: solid black 1px;
+      }
+    }
+    
+    .nav-shop {
+      font-size: 24px;
+      margin-left: 2rem;
+      letter-spacing: 0.4rem;
+    }
   }
 
   .nav-right {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 10rem;
+    width: 33%;
+
     .user {
       font-size: 24px;
     }
-    .cart-container{
+
+    .cart-container {
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       position: relative;
+
       .cart {
         margin: 0 1rem;
         width: 2rem;
         height: auto;
       }
-      .cart-count{
+
+      .cart-count {
         position: absolute;
         top: 11px;
       }

@@ -18,6 +18,12 @@ const Home = () => {
             <div className='featured-products-container'>
                 <FeaturedProducts/>
             </div>
+            <div className='other-title'>
+                OTHER LOOKS
+            </div>
+            <div className='other-looks'>
+                
+            </div>
         </div>
     )
 }

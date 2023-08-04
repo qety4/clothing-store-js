@@ -1,0 +1,64 @@
+.login-btn {
+    border: none;
+    background: none;
+    font-size: 24px;
+    font-weight: normal;
+    font-family: 'Times New Roman', Times, serif;
+    *{
+        transition: ease-in-out .2s linear;
+    }
+    &:hover {
+        color: rgb(145, 142, 142);
+    }
+}
+
+.login-modal,.login-modal-overlay {
+        z-index: 10;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: fixed;
+}
+.login-modal-overlay{
+    background: rgba(128, 128, 128, 0.315);
+}
+.login-modal{  
+    .login-modal-content {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -40%);
+        line-height: 1.8rem;
+        padding: 3rem 2rem;
+        border-radius: 0.8rem;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 11;
+        width: 30%;
+        height: 50%;
+        max-width: 18rem;
+    }
+    .login-register{
+        display: flex;
+        justify-content: space-between;
+        .login{
+            border-top: solid black 1px;
+        }
+        p{
+            margin: 1rem;
+        }
+    }
+
+    .close-modal {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px 7px;
+    }
+}

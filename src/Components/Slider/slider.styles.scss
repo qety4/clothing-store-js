@@ -1,36 +1,52 @@
 .slider {
+    perspective: 100px;
+    overflow: hidden;
+    .slider-bg {
+        width: 100%;
+        height: 100%;
+        z-index: -100;
+        transform-style: preserve-3d;
+        position: absolute;
+        background-color: rgba(211, 211, 211, 0.059);
+        .slider-bg-img {
+            background-image: url(https://bltsoundstages.com/wp-content/uploads/2021/02/Soundstage-2-Stage-4-scaled.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            transform: translateZ(-100px) scale(2);
+        }
+    }
+
     width: 100%;
     height: auto;
     // border: solid black 1px;
     // padding: 0 7rem;
     box-shadow: 0 1px 5px;
-    margin: 0 1rem;
+    margin: 0 0.1rem;
     display: flex;
     justify-content: center;
     position: relative;
-    background-image: url(https://bltsoundstages.com/wp-content/uploads/2021/02/Soundstage-2-Stage-4-scaled.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+
 
 
     .slide {
         width: 24rem;
-        height: 32rem;
+        height: 37.1rem;
         background-position: center;
         background-size: cover;
-        border-radius: 0.3%;
+        border-radius: 0.8%;
         position: relative;
         overflow: hidden;
-        
-
+        margin: 1.8px 0 3px 0;
         .slide-img {
             display: flex;
             width: 100%;
             height: 100%;
             transition-property: transform;
             transition-timing-function: ease-in-out;
-            transition-duration: 800ms;
-
+            transition-duration: 400ms;
+            object-fit: cover;
             .slide-img-1 {
                 width: 100%;
                 height: 100%;
@@ -48,16 +64,18 @@
             left: 0;
 
             button {
-                padding: 0 0.8rem 0.8rem 0.8rem;
+                padding: 0 0.4rem 0.4rem 0.4rem;
                 border: none;
                 background: none;
-                font-size: 3rem;
-                border-radius: 70%;
-                background-color: rgba(255, 255, 255, 0.8);
+                font-size: 2.8rem;
+                margin: 0 0.8rem;
+                border-radius: 50%;
+                // background-color: rgba(255, 255, 255, 0.8);
                 transition: ease .2s;
                 color: rgba(0, 0, 0, 0.3);
+
                 &:hover {
-                    background-color: white;
+                    background-color: rgba(255, 255, 255, 0.601);
                 }
 
             }
@@ -67,16 +85,26 @@
 
     .about {
         position: absolute;
-
-        bottom: 0;
-        right: 0;
-        width: 10rem;
+        transform: translate(73%,-15%);
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        color: red;
+        z-index: -10;
+        font-size: 24px;
     }
 
     .title {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 10rem;
+        transform: translate(18%,-19%);
+        font-size: 30px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: red;
+        letter-spacing: 0.2rem;
     }
 }
