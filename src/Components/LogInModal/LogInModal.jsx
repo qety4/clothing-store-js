@@ -7,7 +7,7 @@ import Register from '../Register/Register'
 const LogIn = () => {
     const [modal, setModal] = useState(false);
     const [log, setLog] = useState(0)
-    
+
     const toggle = () => {
         setModal(!modal)
     }
@@ -15,52 +15,51 @@ const LogIn = () => {
         setLog(e)
     }
     return (
-        <div className='modal-container'>
+        <>
             <button
                 className='login-btn'
                 onClick={toggle}
             >
-                login
+                LOGIN
             </button>
             {
                 modal && (
                     <div className="login-modal">
                         <div className='login-modal-overlay' onClick={toggle}></div>
                         <div className='login-modal-content'>
-                            <h3>Hi 👋</h3>
+                            <h3>Welcome</h3>
                             <div className='login-register'>
                                 <p
                                     className={log === 0 ? 'login' : ''}
-                                    onClick={() => { toggleLogin(0) }}>Login</p>
+                                    onClick={() => { toggleLogin(0) }}>LOGIN</p>
                                 <p
-                                    className={log === 0 ? '' : 'login' }
-                                    onClick={() => toggleLogin(1)}>Sign Up</p>
+                                    className={log === 0 ? '' : 'login'}
+                                    onClick={() => toggleLogin(1)}>SIGN UP</p>
                             </div>
                             <div className='modal-form'>
-                            {
-                                log === 0 ?
-                                <>
-                                        <LogInForm />
-                                        <div className="register-link">
-                                            <p>Don't have an account ? <b onClick={() => toggleLogin(1)}>Register</b></p>
-                                        </div>
-                                    </>
-                                    :
-                                    <>
-                                        <Register />
-                                
-                                    </>
-                            }
+                                {
+                                    log === 0 ?
+                                        <>
+                                            <LogInForm />
+                                            <p className='reg-link'>don't have an account? <b onClick={() => toggleLogin(1)}>register</b></p>
+
+                                        </>
+                                        :
+                                        <>
+                                            <Register />
+
+                                        </>
+                                }
                             </div>
-                            <p>OR</p>
+                            <p className='modal-or'>OR</p>
                             <button className='mail-signin'>sign in with google</button>
 
-                            <button className='close-modal' onClick={toggle}>close</button>
+                            {/* <button className='close-modal-btn' onClick={toggle}>&#10005;</button> */}
                         </div>
                     </div>
                 )
             }
-        </div>
+        </>
     )
 }
 

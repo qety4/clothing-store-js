@@ -22,7 +22,9 @@ const Nav = () => {
                     </p>
                 </div>
                 <div className='nav-logo-container'>
+                    <Link to='/'>
                     <p className='nav-logo'>logo</p>
+                    </Link>
                 </div>
                 <div className='nav-right'>
                     <LoginModal />

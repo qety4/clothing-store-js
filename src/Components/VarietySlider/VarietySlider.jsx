@@ -1,6 +1,6 @@
 import { slides } from '../../assets/slides/slides.js'
 import { useState } from 'react'
-import './slider.styles.scss'
+import './varietySlider.styles.scss'
 
 const Slider = () => {
     const [currentIndex, setIndex] = useState(0)

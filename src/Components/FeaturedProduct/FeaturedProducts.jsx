@@ -1,6 +1,7 @@
 import './featuredProducts.styles.scss'
-
+import ProductCard from '../ProductCard/ProductCard'
 import { products } from '../../assets/featured-product/featuredProduct'
+
 const FeaturedProducts = () => {
 
 
@@ -11,18 +12,7 @@ const FeaturedProducts = () => {
                 {
                     products.map((item,index) => {
                         return (
-                            <div key={index} className="featured-product-container">
-                                <img className='product-image' src={item.url} alt="" />
-                                <p className="product-title">
-                                    {item.title.toUpperCase()}
-                                </p>
-                                <p className="product-about">
-                                    {item.about}
-                                </p>
-                                <p className="product-price">
-                                    {item.price}
-                                </p>
-                            </div>
+                         <ProductCard key={index} index={index} item={item}/>
                         )
                     })
                 }

@@ -6,6 +6,14 @@
 a {
   text-decoration: none;
   color: black;
+  text-shadow: 0 0 0.08rem;
+  * {
+    transition: ease-in-out .2s linear;
+  }
+
+  &:hover {
+    color: rgb(145, 142, 142);
+  }
 }
 
 .nav {
@@ -16,6 +24,7 @@ a {
 
   .nav-logo {
     font-size: 28px;
+    font-weight: 100;
   }
 
   .nav-left {
@@ -23,32 +32,34 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+
     .nav-search {
       display: flex;
       .search-input {
         border-radius: 10px;
         height: 24px;
-        width: 18rem;
+        width: 100%;
         border: solid black 1px;
       }
     }
-    
+
     .nav-shop {
-      font-size: 24px;
-      margin-left: 2rem;
-      letter-spacing: 0.4rem;
+      font-size: 2rem;
+      margin-right: 2.9%;
+      letter-spacing: 0.2rem;
+      font-family: 'Work Sans';
+      font-weight: 380;
     }
   }
 
   .nav-right {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     width: 33%;
 
-    .user {
-      font-size: 24px;
+    .nav-login {
+      margin-left: 23%;
     }
 
     .cart-container {
@@ -57,16 +68,19 @@ a {
       justify-content: center;
       cursor: pointer;
       position: relative;
-
+      margin: 0 0 0 35%;
       .cart {
         margin: 0 1rem;
-        width: 2rem;
+        width: 2.8rem;
         height: auto;
       }
 
       .cart-count {
+        font-size: 1.29rem;
         position: absolute;
-        top: 11px;
+        top: 1rem;
+        font-family: 'Work Sans';
+        text-shadow: 0.01rem 0.01rem 0.01rem;
       }
 
     }

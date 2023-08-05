@@ -31,8 +31,8 @@
 
 
     .slide {
-        width: 24rem;
-        height: 37.1rem;
+        width: 23.8rem;
+        height: 37.3rem;
         background-position: center;
         background-size: cover;
         border-radius: 0.8%;
@@ -85,26 +85,35 @@
 
     .about {
         position: absolute;
-        transform: translate(73%,-15%);
+        transform: translate(73%,-5%);
         display: flex;
         align-items: center;
         width: 100%;
         height: 100%;
-        color: red;
+        color: rgb(244, 238, 238);
+        
+        text-shadow: 0.2rem 0.2rem 0.2rem rgba(146, 140, 140, 0.882);
         z-index: -10;
-        font-size: 24px;
+        font-size: 1.8rem;
+        // font-family: 'Prompt', sans-serif;
+        font-family: 'Work Sans', serif;
+        font-weight: 500;
     }
 
     .title {
         position: absolute;
-        transform: translate(18%,-19%);
-        font-size: 30px;
+        transform: translate(14.85%,-10.2%);
+        font-size: 2.3rem;
         width: 100%;
         height: 100%;
         display: flex;
         align-items: center;
         text-align: center;
-        color: red;
-        letter-spacing: 0.2rem;
+        color: rgb(255, 255, 255);
+        text-shadow: 0.2rem 0.2rem 0.2rem rgba(153, 153, 153, 0.882);
+        letter-spacing: 0.3rem;
+        // font-family: 'Prompt', sans-serif;
+        font-family: 'Work Sans', serif;
+        font-weight: 500;
     }
 }

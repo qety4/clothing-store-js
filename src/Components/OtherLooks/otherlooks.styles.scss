@@ -1,0 +1,36 @@
+.otr-grid{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    width: 100%;
+    height: 70%;
+    // gap: 2rem;
+    .look-items{
+        padding: 5% 0 0 9.5%;
+        display: grid;
+        gap: 3%;
+        grid-template-columns: repeat(2,1fr);
+        height: 50%;
+        width: 85%;
+    }
+    .look-pic-container{
+        padding: 0 0 10% 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .look-pic{
+        height: 58%;
+        width: 71%;
+        margin: 0 0 27% 0;
+        z-index: 1;
+    }
+    }
+    
+    // .item-4{
+    //     .product-image{
+    //         height: auto;
+    //     }
+    //     grid-column-start: 3;
+    //     grid-row-start: 1;
+    //     grid-row: 1 2;
+    // }
+}

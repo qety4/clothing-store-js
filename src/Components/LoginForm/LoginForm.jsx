@@ -1,21 +1,27 @@
 import './loginForm.styles.scss'
 
-const LogInForm =()=>{
+const LogInForm = () => {
 
-return(
-    <div>
-        <div className="login-form-container" >
+    return (
+        <div>
+            <div className="login-form-container" >
 
-            <form className="login-form">
-                    <input className='input-text' type="text" required placeholder="Username" />
-                    <input className='input-text' type="password" required placeholder="Password" />
-                    <label htmlFor=""><input type="checkbox" />Remember me</label>
-                    <a href="">Forgot password?</a>
-                <button type="submit" className="btn">Log In</button>
-            </form>
+                <form className="login-form">
+                    <div className="input-box">
+                        <label htmlFor="log-email">Email</label>
+                        <input className='input-text' id='log-email' type="text" required />
+                    </div>
+                    <div className="input-box">
+                        <label htmlFor="log-password">Password</label>
+                        <input className='input-text' type="password" id='log-password' required />
+                    </div>
+                    <label htmlFor="log-rem" className='log-remember'>Remember me <input type="checkbox" id='log-rem' /></label>
+                    <button type="submit" className="form-btn">LOG IN</button>
+                    <a href='/'>Forgot password?</a>
+                </form>
+            </div>
         </div>
-    </div>
-)
+    )
 }
 
 export default LogInForm
