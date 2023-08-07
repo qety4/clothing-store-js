@@ -1,0 +1,21 @@
+.cart-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    .cart {
+      margin: 0 1rem;
+      width: 2.8rem;
+      height: auto;
+    }
+
+    .cart-count {
+      font-size: 1.29rem;
+      position: absolute;
+      top: 1rem;
+      font-family: 'Work Sans';
+      text-shadow: 0.01rem 0.01rem 0.01rem;
+    }
+
+  }

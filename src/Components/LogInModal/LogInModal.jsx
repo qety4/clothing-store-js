@@ -4,6 +4,7 @@ import './loginModal.styles.scss'
 import LogInForm from '../LoginForm/LoginForm.jsx'
 import Register from '../Register/Register'
 
+const body= document.body
 const LogIn = () => {
     const [modal, setModal] = useState(false);
     const [log, setLog] = useState(0)
@@ -14,6 +15,14 @@ const LogIn = () => {
     const toggleLogin = (e) => {
         setLog(e)
     }
+    
+    if (modal){
+        body.classList.add('stop-scroll')
+    }else{
+        body.classList.remove('stop-scroll')
+    }
+
+
     return (
         <>
             <button
@@ -54,6 +63,8 @@ const LogIn = () => {
                             <p className='modal-or'>OR</p>
                             <button className='mail-signin'>sign in with google</button>
 
+                            
+                            <p className='sign-in-demo'>sign in demo</p>
                             {/* <button className='close-modal-btn' onClick={toggle}>&#10005;</button> */}
                         </div>
                     </div>

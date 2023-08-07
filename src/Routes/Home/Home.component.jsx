@@ -1,8 +1,15 @@
 import './home.styles.scss'
 import Slider from '../../Components/VarietySlider/VarietySlider.jsx'
-import FeaturedProducts from '../../Components/FeaturedProduct/FeaturedProducts'
+import FeaturedProducts from '../../Components/FeaturedProducts/FeaturedProducts'
 import OtherLooks from '../../Components/OtherLooks/OtherLooks'
+import {useNavigate} from 'react-router-dom'
+
 const Home = () => {
+    const navigate= useNavigate()
+
+    const shopAll = ()=>{
+        navigate('/shop')
+    }
 
     return (
 
@@ -16,7 +23,7 @@ const Home = () => {
             <div className='featured-products-title'>
                 FEATURED PRODUCTS
             </div>
-            <div className='featured-products-container'>
+            <div className='featured-products-home-container'>
                 <FeaturedProducts />
             </div>
             <div className='other-title'>
@@ -26,7 +33,7 @@ const Home = () => {
                 <OtherLooks />
             </div>
             <div className='shop-all-btn-container'>
-                <button className='shop-all-btn'>
+                <button onClick={shopAll} className='shop-all-btn'>
                     SHOP ALL
                 </button>
             </div>
