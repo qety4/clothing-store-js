@@ -1,13 +1,21 @@
 import { createContext, useReducer } from "react";
 
-
-export const INITIAL_STATE = {
+let INITIAL_STATE = {
     isCartOpen: false,
     cartItems: [],
     cartCount: 0,
     cartTotal: 0,
 };
+const cartLocalStorage = localStorage.getItem('cart')
 
+if (cartLocalStorage) {
+    const cart = JSON.parse(localStorage.getItem('cart'))
+    
+    INITIAL_STATE = {
+        isCartOpen: false,
+        ...cart
+    }
+}
 
 export const CartContext = createContext({
     ...INITIAL_STATE,
@@ -43,6 +51,7 @@ export const cartReducer = (state, action) => {
     }
 
 }
+
 
 const addCartItem = (cartItems, item) => {
     console.log(cartItems)
@@ -88,13 +97,17 @@ export const CartProvider = ({ children }) => {
 
         const newCartCount = newCartItems.reduce((total, item) => total + item.quantity, 0)
         const newCartTotal = newCartItems.reduce((total, item) => total + item.price * item.quantity, 0)
+        const cart = {
+            cartItems: newCartItems,
+            cartTotal: newCartTotal,
+            cartCount: newCartCount
+        }
+        localStorage.setItem('cart', JSON.stringify(cart))
 
         dispatch({
             type: CART_ACTION_TYPES.SET_CART_ITEMS,
             payload: {
-                cartItems: newCartItems,
-                cartTotal: newCartTotal,
-                cartCount: newCartCount
+                ...cart
             }
 
         })
@@ -104,7 +117,7 @@ export const CartProvider = ({ children }) => {
         dispatch({
             type: CART_ACTION_TYPES.SET_CART_OPEN,
             payload: {
-                isCartOpen:bool
+                isCartOpen: bool
             }
         })
     }

@@ -5,7 +5,7 @@
     height: 70%;
     // gap: 2rem;
     .look-items{
-        padding: 5% 0 0 9.5%;
+        padding: 5% 0 0 9%;
         display: grid;
         gap: 3%;
         grid-template-columns: repeat(2,1fr);
@@ -13,12 +13,12 @@
         width: 85%;
     }
     .look-pic-container{
-        padding: 0 0 10% 0;
+        padding: 0 0 10% 0.8%;
         display: flex;
         justify-content: center;
         align-items: center;
         .look-pic{
-        height: 58%;
+        height: 58.3%;
         width: 71%;
         margin: 0 0 27% 0;
         z-index: 1;

@@ -6,6 +6,7 @@ import LogIn from './Routes/Login/LogIn.component'
 import Shop from './Routes/Shop/Shop.component'
 import Register from './Routes/Register/Register.component'
 import Checkout from './Routes/Checkout/Checkout'
+import PaymentPage from './Routes/PaymentPage/PaymentPage'
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path='/shop' element={<Shop />}/>
           <Route path='/register' element={<Register/>}/>
           <Route path='/checkout' element={<Checkout/>} />
+          <Route path='/pay' element={<PaymentPage/>}/>
         </Route>
     </Routes>
   )

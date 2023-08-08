@@ -8,6 +8,7 @@
     margin-left: 1.7rem;
     text-shadow: 0 0 0.08rem ;
     font-weight: 380;
+    cursor: pointer;
     *{
         transition: ease-in-out .2s linear;
     }
@@ -72,7 +73,7 @@
         font-size: 1.5rem;
         letter-spacing: 0.0.5rem;
         transition: .2s;
-        margin: 1rem 0 0.1rem 0;
+        margin: 1rem 0 0.2rem 0;
         .login{
             border-top: solid black 1.1px;
         }
@@ -92,7 +93,7 @@
         padding-bottom:1rem ;
     }
     .mail-signin{
-        padding: 5.8% 13%;
+        padding: 5.8% 13% 5.8% 11%;
         font-size: 1.2rem;
         border-radius: 1.8rem;
         border: 1px solid black;
@@ -100,6 +101,12 @@
         font-family:'Segoe UI', sans-serif;
         font-weight: 100;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        transition: .3s linear;
+        &:hover{
+            background-color: rgba(128, 128, 128, 0.129);
+        }
     }
     .reg-link{
         margin-top: 0.8rem;
@@ -111,7 +118,11 @@
         font-family:'work sans';
         font-weight: 230;
         b{
+            transition: .8s linear;
             cursor: pointer;
+            &:hover{
+                color: gray ;
+            }
         }
     }
     .modal-or{

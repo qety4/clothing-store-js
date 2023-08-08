@@ -1,6 +1,7 @@
 import { Outlet, Link } from 'react-router-dom'
-import user from '../../assets/user.svg'
-import search from '../../assets/search.svg'
+
+import SearchNav from '../../Components/SearchNav/SearchNav.jsx'
+
 import LoginModal from '../../Components/LogInModal/LogInModal.jsx'
 import './nav.styles.scss'
 import CartDropdown from '../../Components/CardDropdown/CartDropdown'
@@ -11,10 +12,9 @@ const Nav = () => {
         <main>
             <div className='nav'>
                 <div className='nav-left'>
-                    <div className='nav-search'>
-                        <input className='search-input' type="text" />
-                        <img src={search} className='search-svg' alt="" />
-                    </div>
+                 <>
+                    <SearchNav/>
+                 </>
                     <p className='nav-shop'>
                         <Link to='/shop'>
                             SHOP

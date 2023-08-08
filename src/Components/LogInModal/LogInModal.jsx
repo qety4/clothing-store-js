@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './loginModal.styles.scss'
-
+import { ReactComponent as GoogleSvg} from './../../assets/svgs/google.svg'
 import LogInForm from '../LoginForm/LoginForm.jsx'
 import Register from '../Register/Register'
 
@@ -61,7 +61,7 @@ const LogIn = () => {
                                 }
                             </div>
                             <p className='modal-or'>OR</p>
-                            <button className='mail-signin'>sign in with google</button>
+                            <button className='mail-signin'><GoogleSvg/>  sign in with google</button>
 
                             
                             <p className='sign-in-demo'>sign in demo</p>

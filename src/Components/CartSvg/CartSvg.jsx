@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/Cart.context'
-import cart from '../../assets/bag.svg'
+import cart from '../../assets/svgs/bag.svg'
 import './cartSvg.styles.scss'
 
 const CartSvg = () => {

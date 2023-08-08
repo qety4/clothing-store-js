@@ -9,13 +9,23 @@
     }
 
     .shop-filter{
-        padding: 1rem 0 0 8% ;
+        // padding: 1rem 0 0 8% ;
         .shop-filter-select{
-            text-align: center;
-            padding: 1.5rem 2.5rem;
+            // text-align: center;
+            // padding: 1.5rem 2.5rem;
             font-size: 1rem;
-            border-radius: 3px;
-            border: 1.5px solid black;
+            // border-radius: 3px;
+            // border: 1.5px solid black;
         }
+    }
+    .shop-products-container{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+    }
+    .search-title{
+        text-align: center;
+        font-size: 3rem;
+        text-shadow: 0.1rem 0.2rem 0.2rem rgb(223, 223, 223);
+        letter-spacing: 0.3rem;
     }
 }
