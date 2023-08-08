@@ -1,64 +1,88 @@
+import React from 'react'
 import './shop.styles.scss'
-import { SearchContext } from '../../contexts/Search.contex'
-import { useContext } from 'react'
+import { SearchContext } from './../../Contexts/Search.context'
+import { useContext,useEffect } from 'react'
 import ProductCard from './../../Components/ProductCard/ProductCard.jsx'
-import {products} from './../../assets/featured-product/featuredProduct.js'
+import { products } from './../../assets/featured-product/featuredProduct.js'
 
 const Shop = () => {
-    const { searchValue } = useContext(SearchContext)
+    const { searchValue, handleChange, shopMount } = useContext(SearchContext)
+
+    let searchedProducts = 0
+    if (searchValue !== '') {
+        searchedProducts = products.map((item, index) => {
+            if (item.title.toLowerCase().includes(searchValue.toLowerCase().slice(1, searchValue.length - 1)) || item.about.toLowerCase().includes(searchValue.toLowerCase()) || item.price.toLowerCase().includes(searchValue.toLowerCase())) {
+                return 1
+            }else{
+                return undefined
+            }
+        })
+    }
+    useEffect(()=>{
+        shopMount()
+    },[])
+
     return (
         <div className="shop">
-            <p className="shop-title">
-                SHOP ALL
-            </p>
             <div className='shop-filter'>
-                <select className='shop-filter-select'>
-                    <option value="t-shirt">
+                <select onChange={handleChange} className='shop-filter-select'>
+                    <option value="" disabled selected>
+                        FILTER
+                    </option>
+                    <option value="t-shirts">
                         t-shirts
                     </option>
-                    <option value="jacket">
+                    <option value="jackets">
                         jackets
                     </option>
                     <option value="pants">
                         pants
                     </option>
-                    <option value="sneaker">
+                    <option value="sneakers">
                         sneakers
                     </option>
-                    <option value="hat">
+                    <option value="hats">
                         hats
+                    </option>
+                    <option value="">
+                        SHOP ALL
                     </option>
                 </select>
             </div>
-            <p className='search-title'>{searchValue}</p>
 
-            <div className='shop-products-container'>
-                {
-                    searchValue ?
-                        products.map((item, index) => {
-                            if (item.title.toLowerCase().includes(searchValue.toLowerCase().slice(1,searchValue.length-1)) || item.about.toLowerCase().includes(searchValue.toLowerCase()) || item.price.toLowerCase().includes(searchValue.toLowerCase())) {
-                               return <ProductCard item={item} key={index} />
+            {
+                searchedProducts[0] ?
+                    <div className='searched-items'>
+                        <p className='search-title'>search results for {searchValue}</p>
+
+                        <div className='shop-products-container'>
+                            {
+                                products.map((item, index) => {
+                                    if (item.title.toLowerCase().includes(searchValue.toLowerCase().slice(0, searchValue.length - 1)) || item.about.toLowerCase().includes(searchValue.toLowerCase()) || item.price.toLowerCase().includes(searchValue.toLowerCase())) {
+                                        return <ProductCard item={item} key={index} />
+                                    }else{
+                                        return undefined
+                                    }
+                                })
                             }
-                        })
-                        :
-                        products.map((item, index) => 
-                            <ProductCard item={item} key={index} />
-                        )
-                }
-            </div>
-            
-            <div className='shop-products-container'>
-                {
-                searchValue ?
-                products.map((item,index)=>{
-                    return <ProductCard item={item} key={item.title} />
+                        </div>
 
-                }) : ''
+                    </div>
+                    : ''
             }
-            </div>
+            <>
+                <p className="shop-title">
+                    SHOP ALL
+                </p>
 
-           
-
+                <div className='shop-products-container'>
+                    {
+                        products.map((item, index) => {
+                            return <ProductCard item={item} key={index + item.title} />
+                        })
+                    }
+                </div>
+            </>
         </div>
     )
 }

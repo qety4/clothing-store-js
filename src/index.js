@@ -4,8 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'
-import { CartProvider } from './contexts/Cart.context';
-import { SearchProvider } from './contexts/Search.contex';
+import { CartProvider } from './Contexts/Cart.context';
+import { SearchProvider } from './Contexts/Search.context';
 
 
 

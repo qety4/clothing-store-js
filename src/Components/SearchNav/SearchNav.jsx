@@ -1,6 +1,6 @@
 import './searchNav.styles.scss'
 import search from '../../assets/svgs/search.svg'
-import { SearchContext } from '../../contexts/Search.contex'
+import { SearchContext } from '../../Contexts/Search.context'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 const SearchNav = () => {

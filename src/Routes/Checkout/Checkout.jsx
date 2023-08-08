@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { CartContext } from '../../contexts/Cart.context'
+import { CartContext } from '../../Contexts/Cart.context'
 import CheckoutItem from '../../Components/CheckoutItem/CheckoutItem'
 import './checkout.styles.scss'
 import { useNavigate } from 'react-router-dom'

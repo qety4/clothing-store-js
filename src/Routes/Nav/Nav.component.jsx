@@ -5,8 +5,12 @@ import SearchNav from '../../Components/SearchNav/SearchNav.jsx'
 import LoginModal from '../../Components/LogInModal/LogInModal.jsx'
 import './nav.styles.scss'
 import CartDropdown from '../../Components/CardDropdown/CartDropdown'
+import { useContext } from 'react'
+import { SearchContext } from '../../Contexts/Search.context.jsx'
 
 const Nav = () => {
+
+    const {updateSearch} = useContext(SearchContext)
 
     return (
         <main>
@@ -16,7 +20,7 @@ const Nav = () => {
                     <SearchNav/>
                  </>
                     <p className='nav-shop'>
-                        <Link to='/shop'>
+                        <Link to='/shop' onClick={updateSearch}>
                             SHOP
                         </Link>
                     </p>
