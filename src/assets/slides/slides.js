@@ -24,5 +24,5 @@ export const slides = [
         title:'hats',
         url:'https://cdn-images.farfetch-contents.com/16/91/13/96/16911396_35626324_1000.jpg',
         about:'u already kno'
-    }
+    },
 ]

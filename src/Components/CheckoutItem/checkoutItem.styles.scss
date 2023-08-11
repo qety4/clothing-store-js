@@ -1,3 +1,5 @@
+@import '../../assets/saas-variables/media.scss';
+
 .checkout-item-container {
     width: 100%;
     display: flex;
@@ -6,6 +8,7 @@
     padding: 1.9% 0;
     font-size: 180%;
     align-items: center;
+    padding: 2% 3%;
     .image-container {
         width: 23%;
         padding-right: 15px;
@@ -50,7 +53,10 @@
     }
 
     .remove-button {
-        // padding-right: 10%;
+        padding-right: 3%;
         cursor: pointer;
+    }
+    @media (max-width:$resp-layout){
+        font-size: 120%;
     }
 }

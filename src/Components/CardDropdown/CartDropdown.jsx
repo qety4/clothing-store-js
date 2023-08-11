@@ -13,6 +13,7 @@ const CartDropdown = () => {
         setIsCartOpen(!isCartOpen)
     }
     const goToCheckout = ()=>{
+        cartToggle()
         navigate('/checkout')
     }
 

@@ -1,13 +1,24 @@
 import { useState } from 'react'
 import './loginModal.styles.scss'
 import { ReactComponent as GoogleSvg} from './../../assets/svgs/google.svg'
+import {signInWithGooglePopup} from './../../util/firebase.js'
 import LogInForm from '../LoginForm/LoginForm.jsx'
 import Register from '../Register/Register'
+import { useEffect } from 'react'
 
 const body= document.body
+
+
 const LogIn = () => {
     const [modal, setModal] = useState(false);
     const [log, setLog] = useState(0)
+
+    useEffect(()=>{
+        return ()=>{
+            body.classList.remove('stop-scroll')
+            setModal(false)
+        }
+    },[])
 
     const toggle = () => {
         setModal(!modal)
@@ -15,13 +26,17 @@ const LogIn = () => {
     const toggleLogin = (e) => {
         setLog(e)
     }
-    
     if (modal){
         body.classList.add('stop-scroll')
     }else{
         body.classList.remove('stop-scroll')
     }
 
+
+    
+    const signInWithGoogle = async ()=>{
+        await signInWithGooglePopup()
+    }
 
     return (
         <>
@@ -61,7 +76,7 @@ const LogIn = () => {
                                 }
                             </div>
                             <p className='modal-or'>OR</p>
-                            <button className='mail-signin'><GoogleSvg/>  sign in with google</button>
+                            <button className='mail-signin' onClick={signInWithGoogle} ><GoogleSvg/>  sign in with google</button>
 
                             
                             <p className='sign-in-demo'>sign in demo</p>

@@ -12,7 +12,7 @@ const FeaturedProducts = () => {
                 {
                     products.map((item,index) => {
                         return (
-                         <ProductCard key={index} index={index} item={item}/>
+                         <ProductCard key={index} item={item}/>
                         )
                     })
                 }

@@ -1,3 +1,5 @@
+@import '../../assets/saas-variables/media.scss';
+
 .otr-grid{
     display: grid;
     grid-template-columns: 60% 40%;
@@ -18,10 +20,18 @@
         justify-content: center;
         align-items: center;
         .look-pic{
-        height: 58.3%;
+        background-image: url('https://cdn-images.farfetch-contents.com/19/81/29/26/19812926_44621781_1000.jpg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        height: 59%;
         width: 71%;
         margin: 0 0 27% 0;
         z-index: 1;
+        transition: .3s linear ;
+        &:hover{
+            background-image: url('https://cdn-images.farfetch-contents.com/19/81/35/86/19813586_44624307_1000.jpg');
+        }
     }
     }
     

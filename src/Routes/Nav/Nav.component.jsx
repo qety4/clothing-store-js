@@ -7,20 +7,22 @@ import './nav.styles.scss'
 import CartDropdown from '../../Components/CardDropdown/CartDropdown'
 import { useContext } from 'react'
 import { SearchContext } from '../../Contexts/Search.context.jsx'
+import { UserContext } from '../../Contexts/User.context.jsx'
 
 const Nav = () => {
 
-    const {updateSearch} = useContext(SearchContext)
+    const { searchReset } = useContext(SearchContext)
+    const { currentUser } = useContext(UserContext)
 
     return (
         <main>
             <div className='nav'>
                 <div className='nav-left'>
-                 <>
-                    <SearchNav/>
-                 </>
+                    <>
+                        <SearchNav />
+                    </>
                     <p className='nav-shop'>
-                        <Link to='/shop' onClick={updateSearch}>
+                        <Link to='/shop' onClick={searchReset}>
                             SHOP
                         </Link>
                     </p>
@@ -31,15 +33,18 @@ const Nav = () => {
                     </Link>
                 </div>
                 <div className='nav-right'>
-                    <LoginModal />
+                    {
+                        currentUser ?
+                            <Link className='login-btn' to='/profile'>
+                                profile
+                            </Link>
+                            :
+                            <LoginModal />
+                    }
                     <div className='nav-cart-container'>
                         <CartDropdown />
                     </div>
                 </div>
-
-            </div>
-
-            <div className='nav-under'>
 
             </div>
             <Outlet />

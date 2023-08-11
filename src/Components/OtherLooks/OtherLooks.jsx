@@ -19,7 +19,7 @@ const OtherLooks = () => {
         }
       </div>
       <div className='look-pic-container'>
-        <img className='look-pic' src={otr[4].url} alt="" />
+        <img className='look-pic'  alt="" />
       </div>
     </div>
   )

@@ -34,7 +34,8 @@ const CheckoutItem = ({ item }) => {
                 </div>
 
             </div>
-        </div>)
+        </div>
+    )
 }
 
 export default CheckoutItem

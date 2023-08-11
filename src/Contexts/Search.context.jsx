@@ -7,7 +7,7 @@ export const SearchContext = createContext({
     searchValue:'',
     updateSearch: () => { },
     handleChange:()=>{ },
-    shopMount:()=>{}
+    searchReset:()=>{}
 })
 
 
@@ -18,10 +18,6 @@ export const SearchProvider = ({ children }) => {
     console.log(searchValue)
 
     const updateSearch = (e) => {
-        if(e.type==='click'){
-            setSearch('')
-            return
-        }
         const searchValueNew = e.target[0].value
         console.log(searchValueNew)
         setSearch(searchValueNew)
@@ -32,7 +28,7 @@ export const SearchProvider = ({ children }) => {
         const newValue=e.target.value
         setSearch(newValue)
     }
-    const shopMount = ()=>{
+    const searchReset = ()=>{
         setSearch('')
     }
 
@@ -40,7 +36,7 @@ export const SearchProvider = ({ children }) => {
         searchValue,
         updateSearch,
         handleChange,
-        shopMount
+        searchReset
     }
 
     return <SearchContext.Provider value={value}>

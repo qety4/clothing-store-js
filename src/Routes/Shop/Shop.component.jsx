@@ -1,38 +1,31 @@
 import React from 'react'
 import './shop.styles.scss'
 import { SearchContext } from './../../Contexts/Search.context'
-import { useContext,useEffect } from 'react'
+import { useContext } from 'react'
 import ProductCard from './../../Components/ProductCard/ProductCard.jsx'
-import { products } from './../../assets/featured-product/featuredProduct.js'
+import { products } from './../../assets/all-products/allProducts.js'
 
 const Shop = () => {
-    const { searchValue, handleChange, shopMount } = useContext(SearchContext)
+    const { searchValue, handleChange} = useContext(SearchContext)
 
-    let searchedProducts = 0
+    let searchedProducts = false
     if (searchValue !== '') {
-        searchedProducts = products.map((item, index) => {
-            if (item.title.toLowerCase().includes(searchValue.toLowerCase().slice(1, searchValue.length - 1)) || item.about.toLowerCase().includes(searchValue.toLowerCase()) || item.price.toLowerCase().includes(searchValue.toLowerCase())) {
-                return 1
-            }else{
-                return undefined
-            }
-        })
+        searchedProducts = products.find((item) => 
+            item.title.toLowerCase().includes(searchValue.toLowerCase().slice(0, searchValue.length - 1)) || item.about.toLowerCase().includes(searchValue.toLowerCase()) || item.price.toLowerCase().includes(searchValue.toLowerCase())
+        )
     }
-    useEffect(()=>{
-        shopMount()
-    },[])
 
     return (
         <div className="shop">
             <div className='shop-filter'>
                 <select onChange={handleChange} className='shop-filter-select'>
-                    <option value="" disabled selected>
+                    <option value="" disabled >
                         FILTER
                     </option>
-                    <option value="t-shirts">
+                    <option value="t-shirt">
                         t-shirts
                     </option>
-                    <option value="jackets">
+                    <option value="jacket">
                         jackets
                     </option>
                     <option value="pants">
@@ -51,7 +44,7 @@ const Shop = () => {
             </div>
 
             {
-                searchedProducts[0] ?
+                searchedProducts ?
                     <div className='searched-items'>
                         <p className='search-title'>search results for {searchValue}</p>
 

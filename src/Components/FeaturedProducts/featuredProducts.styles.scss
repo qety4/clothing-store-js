@@ -1,3 +1,4 @@
+
 .products-scroll {
     &*{
         margin: 0;
@@ -10,8 +11,16 @@
     padding-left: 1.9%;
     overflow-x: auto;
     overscroll-behavior-inline: contain;
-}
+    .featured-product-container{
+        width: 90%;
+        height: 91%;
+        .product-image{
+            height: 70%;
+            width: 78%;
+        }
 
+    }
+}
 .snaps-inline{
     scroll-snap-type: inline mandatory;
     scroll-padding-inline:1.9%;

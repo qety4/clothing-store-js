@@ -9,8 +9,8 @@ const SearchNav = () => {
 
     const promptSearch = (e) => {
         e.preventDefault()
-        updateSearch(e)
         navigate('/shop')
+        updateSearch(e)
     }
 
 

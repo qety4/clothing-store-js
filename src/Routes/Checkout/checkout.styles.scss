@@ -1,3 +1,5 @@
+@import '../../assets/saas-variables/media.scss';
+
 .checkout-page{
     overflow: hidden;
     text-align: center;
@@ -9,18 +11,26 @@
         letter-spacing: 0.6rem;
     }
     .checkout-area{
-        .item-desc{
+        .items-desc{
+            position: relative;
             display: flex;
-            justify-content: space-around;
-            p{
-                // width: 50%;
+            .items-desc-product{
+                padding-left: 10%;
             }
             span{
+                position: absolute;
+                right: 0;
+                transform: translate(-24.3%,0);
                 display: flex;
-                justify-content: flex-start;
-                width: 30%;
-                p{
-                    margin-right: 20%;
+                justify-content: space-around;
+                width: 48%;
+            }
+            @media(max-width:$resp-layout){
+                .items-desc-product{
+                    padding-left: 7.5%;
+                }
+                span{
+                    transform: translate(-15%,0);
                 }
             }
         }
@@ -28,7 +38,6 @@
     .checkout-items{
         height: 100%;
         width: 100%;
-        margin-left: 3%;
         .checkout-item{
             width: 100%;
             height: 100%;
@@ -49,7 +58,21 @@
     .checkout-total{
         display: flex;
         justify-content: flex-end;
-        margin: 2% 10%;
+        margin: 2% 10% 0 10%;
         font-size: 180%;
+    }
+    .pay-page-button{
+        background: none;
+        width: 8rem;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        padding: 1rem 0.3rem;
+        border: black solid 0.01rem;
+        transition: .8s ;
+        cursor: pointer;
+        &:hover{
+            color: rgba(13, 13, 13, 0.602);
+            background: rgba(243, 243, 243, 0.04);
+        }
     }
 }

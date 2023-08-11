@@ -3,12 +3,15 @@ import Slider from '../../Components/VarietySlider/VarietySlider.jsx'
 import FeaturedProducts from '../../Components/FeaturedProducts/FeaturedProducts'
 import OtherLooks from '../../Components/OtherLooks/OtherLooks'
 import {useNavigate} from 'react-router-dom'
+import { useContext } from 'react'
+import { SearchContext } from '../../Contexts/Search.context'
 
 const Home = () => {
     const navigate= useNavigate()
-
+    const {searchReset} = useContext(SearchContext)
     const shopAll = ()=>{
         navigate('/shop')
+        searchReset()
     }
 
     return (

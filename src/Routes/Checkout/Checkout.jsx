@@ -16,8 +16,8 @@ const Checkout = () => {
 
             <p className='checkout-title'>CHECK OUT</p>
             <div className='checkout-area'>
-                <div className='item-desc'>
-                    <p>
+                <div className='items-desc'>
+                    <p className='items-desc-product'>
                         Product
                     </p>
                     <span>
@@ -42,8 +42,8 @@ const Checkout = () => {
                     }
                 </div>
             </div>
-            <button onClick={goToPay} className='pay-page-button'>PAY</button>
             <p className='checkout-total'>{cartTotal}€ Total</p>
+            <button onClick={goToPay} className='pay-page-button'>PAY</button>
         </div>
     )
 }
