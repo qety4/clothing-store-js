@@ -9,6 +9,7 @@ a {
   text-decoration: none;
   color: black;
   text-shadow: 0 0 0.08rem;
+
   * {
     transition: ease-in-out .2s linear;
   }
@@ -18,25 +19,17 @@ a {
   }
 }
 
+.dropdown-btn {
+  position: absolute;
+  right: 0.1rem;
+}
+
 .nav {
-  padding: 3.8rem 3%;
+  padding: 3rem 3% 2.3rem 3%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  @media (max-width: $resp-layout) {
-    flex-direction: column;
-    align-items: flex-end;
-    padding: 0;
-    background-color: aliceblue;
-    .nav-left{
-      flex-direction: column;
-      align-items: flex-end;
-    }
-    .nav-right{
-      flex-direction: column;
-    }
-  }
+  z-index: 101;
   .nav-logo {
     font-size: 28px;
     font-weight: 100;
@@ -52,15 +45,19 @@ a {
       display: flex;
       width: 100%;
       justify-content: center;
-      align-items:flex-start;
+      align-items: flex-start;
       margin-right: 10%;
-      .search-svg{
-        width: 1.8rem;
+
+      .search-svg {
+        height: 1.8rem;
       }
+
       .search-input {
         border-radius: 10px;
         height: 24px;
         width: 100%;
+        font-size: 1.1rem;
+        padding: 0.05rem 0 0.05rem 0.5rem;
         border: solid black 1px;
       }
     }
@@ -80,15 +77,44 @@ a {
     align-items: center;
     width: 33%;
 
-    .nav-login {
-      margin-left: 23%;
-    }
-
-    .nav-cart-container{
-      // width: 100%;
+    .nav-cart-container {
       height: 100%;
       margin: 0 0 0 35%;
     }
 
+    .nav-login {
+      margin-left: 23%;
+    }
+
+
+  }
+
+  @media (max-width: $resp-layout){
+    .nav-left {
+
+      .nav-shop {
+        margin: 0;
+      }
+    }
+
+    .nav-right {
+      .login-btn {
+        margin: 0;
+      }
+
+      .nav-cart-container {
+        margin: 0;
+
+        .cart-container {
+          .cart {
+            margin: 0;
+          }
+        }
+
+        .cartdropdown-container {
+          transform: translate(-61%, -2%);
+        }
+      }
+    }
   }
 }

@@ -1,20 +1,72 @@
-.nav-search {
-    display: flex;
+@import '../../assets/saas-variables/media.scss';
+
+.nav-search-form {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  margin-right: 10%;
+
+  .search-svg {
+    width: 1.8rem;
+  }
+
+  .search-input {
+    border-radius: 10px;
+    height: 24px;
     width: 100%;
-    justify-content: center;
-    align-items:flex-start;
-    margin-right: 10%;
-    .search-svg{
+    border: solid black 1px;
+    font-size: 1.3rem;
+    padding: 0.1rem 0 0.3rem 0.8rem ;
+  }
+
+  .search-btn {
+    border: none;
+    background: none;
+  }
+}
+.search-svg-toggle{
+  display: none;
+}
+
+@media (max-width:$resp-layout) {
+  .nav-search-container {
+    .search-svg-toggle {
+      display: inline;
       width: 1.8rem;
     }
-    .search-input {
-      border-radius: 10px;
-      height: 24px;
-      width: 100%;
-      border: solid black 1px;
-    }
-    .search-btn{
-      border: none;
-      background: none;
+
+    .nav-search-form {
+
+      .search-input {
+        display: none;
+      }
+
+      .search-svg {
+        display: none;
+      }
     }
   }
+  .search-toggle {
+    .search-svg-toggle {
+      display: none;
+    }
+    .nav-search-form{
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      padding: 8% 0 5% 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.988);
+      z-index: 1;
+      .search-input{
+        display: inline;
+        width: 50%;
+      }
+      .search-svg{
+        display: inline;
+      }
+    }
+  }
+}

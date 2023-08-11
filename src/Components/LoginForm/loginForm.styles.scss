@@ -16,6 +16,11 @@
         flex-direction: column;
         align-items: flex-start;
         position: relative;
+        .visibility{
+            position: absolute;
+            transform: translate(30%,112%);
+            z-index: 10;
+        }
         span{
             position: absolute;
             right: 0;
