@@ -19,7 +19,7 @@ const CartDropdown = () => {
 
     return (
         <>
-            <div onClick={cartToggle}>
+            <div className='cart-container' onClick={cartToggle}>
             <CartSvg/>
             </div>
             {

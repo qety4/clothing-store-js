@@ -25,11 +25,15 @@ a {
 }
 
 .nav {
-  padding: 3rem 3% 2.3rem 3%;
+  padding: 0.8rem 3% 1.3rem 3%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 101;
+  position: sticky;
+  top: 0;
+  height: 100%;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0) ,rgba(255, 255, 255, 0.413));
   .nav-logo {
     font-size: 28px;
     font-weight: 100;

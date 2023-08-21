@@ -79,7 +79,6 @@ const LogIn = () => {
                             <button className='mail-signin' onClick={signInWithGoogle} ><GoogleSvg/>  sign in with google</button>
 
                             
-                            <p className='sign-in-demo'>sign in demo</p>
                             {/* <button className='close-modal-btn' onClick={toggle}>&#10005;</button> */}
                         </div>
                     </div>

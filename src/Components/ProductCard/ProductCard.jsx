@@ -1,32 +1,37 @@
-import React ,{ useContext } from 'react'
+import React, { useContext } from 'react'
 import { CartContext } from '../../Contexts/Cart.context'
 import './productCard.styles.scss'
+import { useNavigate } from 'react-router-dom'
 
 const ProductCard = ({ item }) => {
-    const { addToCart,cartItems } = useContext(CartContext)
+    const { addToCart, cartItems } = useContext(CartContext)
+    const navigate = useNavigate()
+    const { url, title, about, price } = item
 
-    const {url,title,about,price} = item
-
-    const addItemToCart = ()=>{
+    const addItemToCart = () => {
         addToCart(item)
         console.log(cartItems)
     }
-
+    const itemPage = ()=>{
+        navigate(`/shop/${item.id}`)
+    }
     return (
-        <div className='featured-product-container'>
-            <img className='product-image' src={url} alt="" />
+        <div className='featured-product-container' >
+        <img className='product-image' src={url} onClick={itemPage} alt="" />
             <div className='product-text-desc'>
-            <p className="product-title">
-                {title.toUpperCase()}
-            </p>
-            <p className="product-about">
-                {about}
-            </p>
-            <p className="product-price">
-                {price}€
-            </p>
+                <div className='title-price'>
+                    <p className="product-title">
+                        {title.toUpperCase()}
+                    </p>
+                    <p className="product-price">
+                        {price}€
+                    </p>
+                </div>
+                <p className="product-about">
+                    {about}
+                </p>
             </div>
-            <button className='add-to-cart-btn' onClick={()=> addItemToCart()}>ADD TO CART</button>
+            <button className='add-to-cart-btn' onClick={() => addItemToCart()}>ADD TO CART</button>
         </div>
 
     )

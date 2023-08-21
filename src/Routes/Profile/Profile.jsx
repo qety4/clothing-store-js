@@ -16,25 +16,28 @@ const Profile = () => {
     signOutUser()
   }
   return (
-    <>
-      <div className='profile-info-container'>
-        {
-          currentUserInfo ?
-          <>
-            <p className='profile-title'><b>Profile
-            </b>
-            </p>
-            <p className='name-profile'><b>Name:</b> {currentUserInfo.displayName.stringValue}
-            </p>
-            <p className='email-profile'><b>Email:</b> {currentUserInfo.email.stringValue}
-            </p>
-            <p className='date-profile'><b>Date Created at:</b> {currentUserInfo.createdAt.timestampValue}
-            </p>
-          </>:''
-        }
-      </div>
 
-      <button className="sign-out-button" onClick={signOut}>Sign Out</button>
+    <>
+      {
+        currentUserInfo ?
+          <>
+            <div className='profile-info-container'>
+
+              <p className='profile-title'><b>Profile
+              </b>
+              </p>
+              <p className='name-profile'><b>Name:</b> {currentUserInfo.displayName.stringValue}
+              </p>
+              <p className='email-profile'><b>Email:</b> {currentUserInfo.email.stringValue}
+              </p>
+              <p className='date-profile'><b>Date Created at:</b> {currentUserInfo.createdAt.timestampValue}
+              </p>
+
+            </div>
+            <button className="sign-out-button" onClick={signOut}>Sign Out</button>
+          </>
+          : ''
+      }
     </>
   )
 }

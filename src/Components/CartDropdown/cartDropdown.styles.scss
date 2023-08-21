@@ -1,5 +1,5 @@
 .cartdropdown-container{
-    position: absolute;
+    position: fixed;
     transform: translate(-50%,.008rem);
     border: 0.1rem solid rgb(0, 0, 0);
     min-width: 9rem;
@@ -54,4 +54,7 @@
     right: 0;
     bottom: 0;
     position: fixed;
+}
+.cart-container{
+    position: relative;
 }

@@ -6,15 +6,24 @@ import ProductCard from './../../Components/ProductCard/ProductCard.jsx'
 import { products } from './../../assets/all-products/allProducts.js'
 
 const Shop = () => {
-    const { searchValue, handleChange} = useContext(SearchContext)
-
-    let searchedProducts = false
-    if (searchValue !== '') {
-        searchedProducts = products.find((item) => 
-            item.title.toLowerCase().includes(searchValue.toLowerCase().slice(0, searchValue.length - 1)) || item.about.toLowerCase().includes(searchValue.toLowerCase()) || item.price.toLowerCase().includes(searchValue.toLowerCase())
-        )
-    }
-
+    const { searchValue, handleChange } = useContext(SearchContext)
+    
+    const searchedProducts = searchValue.replace(/\s+/g, "") === '' ?
+        undefined
+        :
+        products.filter((item) =>{
+                if(item.title.toLowerCase().replace(/\s+/g, "").includes(searchValue.toLowerCase().replace(/\s+/g, "").slice(0, searchValue.length - 1) ) || item.about.toLowerCase().replace(/\s+/g, "").includes(searchValue.replace(/\s+/g, "").toLowerCase()) || item.price.toLowerCase().replace(/\s+/g, "").includes(searchValue.replace(/\s+/g, "").toLowerCase())){
+                    if (searchValue.replace(/\s+/g, "") !== ""){
+                    return item}
+                    else{
+                        return undefined
+                    }
+                }
+                else{
+                    return undefined
+                }
+        })
+    
     return (
         <div className="shop">
             <div className='shop-filter'>
@@ -44,24 +53,23 @@ const Shop = () => {
             </div>
 
             {
-                searchedProducts ?
+                searchedProducts != undefined ? 
                     <div className='searched-items'>
                         <p className='search-title'>search results for {searchValue}</p>
 
                         <div className='shop-products-container'>
                             {
-                                products.map((item, index) => {
-                                    if (item.title.toLowerCase().includes(searchValue.toLowerCase().slice(0, searchValue.length - 1)) || item.about.toLowerCase().includes(searchValue.toLowerCase()) || item.price.toLowerCase().includes(searchValue.toLowerCase())) {
-                                        return <ProductCard item={item} key={index} />
-                                    }else{
-                                        return undefined
-                                    }
+                                searchedProducts?.map((item, index) => {
+
+                                    return <ProductCard item={item} key={index} />
+
                                 })
                             }
                         </div>
 
                     </div>
-                    : ''
+                :
+                ""     
             }
             <>
                 <p className="shop-title">

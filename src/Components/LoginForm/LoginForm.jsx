@@ -1,23 +1,23 @@
 import { useContext, useState } from 'react'
 import { ReactComponent as Show } from './../../assets/svgs/show.svg'
 import { ReactComponent as Hide } from './../../assets/svgs/hide.svg'
-import { signInWithEmail } from '../../util/firebase'
+import { signIn } from '../../util/firebase'
 import './loginForm.styles.scss'
-import { UserContext } from '../../Contexts/User.context'
+
 
 const defaultFormFields = {
     email: "",
     password: "",
+    remember:""
 }
 
 
 const LogInForm = () => {
-    const { setRememberUser } = useContext(UserContext)
     const [formFields, setFormFields] = useState(defaultFormFields)
 
     const [visible, setVisible] = useState(false)
 
-    const { email, password } = formFields
+    const { email, password,remember } = formFields
 
 
     const visibilityToggle = () => {
@@ -28,22 +28,37 @@ const LogInForm = () => {
         setFormFields(defaultForm)
     }
 
+    const signInDemo = (e) => {
+        submit(e)
+    }
+
     const submit = async (e) => {
         e.preventDefault()
+        let logMail = ''
+        let logPassword = ''
+        if (e.type === 'click') {
+            logMail = 'demo@mail.com'
+            logPassword = 'aaaaaa'
+            console.log('target', e.target[2])
+        } else {
+            logMail = email
+            logPassword = password
+        }
+
         try {
-            if (e.target[2].checked == true) {
-                setRememberUser(true)
-            }else{
-                localStorage.removeItem('rem')
+            if (remember === 'on') {
+                await signIn(logMail, logPassword, true)
+            } else {
+                await signIn(logMail, logPassword, false)
             }
-            await signInWithEmail(email, password)
         }
         catch (e) {
             switch (e.code) {
                 case 'auth/wrong-password':
                     alert('incorrect password for email')
                     break
-                case 'auth/user-not-found'|| 'auth/invalid-email':
+                case 'auth/user-not-found':
+                case 'auth/invalid-email':
                     alert('user not found')
                     break
                 default:
@@ -58,8 +73,10 @@ const LogInForm = () => {
     }
 
     const handleChange = (event) => {
+        console.log(event)
         const { name, value } = event.target;
         setFormFields({ ...formFields, [name]: value })
+        console.log(formFields)
     }
 
 
@@ -90,10 +107,11 @@ const LogInForm = () => {
                         <span className='visibility' onClick={visibilityToggle} >{visible ? <Hide /> : <Show />}</span>
                     </div>
 
-                    <label htmlFor="log-rem" className='log-remember'>Remember me <input type="checkbox" id='log-rem' /></label>
+                    <label htmlFor="log-rem" className='log-remember'>Remember me <input onChange={handleChange} name='remember' type="checkbox" id='log-rem' /></label>
                     <button type="submit" className="form-btn">LOG IN</button>
-                    <a href='/'>Forgot password?</a>
+                    <p className='sign-in-demo' onClick={signInDemo} >sign in demo</p>
                 </form>
+                <a href='/'>Forgot password?</a>
             </div>
         </div>
     )

@@ -1,14 +1,14 @@
 import { Outlet, Link } from 'react-router-dom'
 import { useContext } from 'react'
 import LoginModal from '../../Components/LogInModal/LogInModal.jsx'
-import CartDropdown from '../../Components/CardDropdown/CartDropdown'
+import CartDropdown from '../../Components/CartDropdown/CartDropdown'
 import SearchNav from '../../Components/SearchNav/SearchNav.jsx'
 import { UserContext } from '../../Contexts/User.context.jsx'
 import { SearchContext } from '../../Contexts/Search.context.jsx'
 import './nav.styles.scss'
 
 const Nav = () => {
-    const { currentUser } = useContext(UserContext)
+    const { currentUserInfo,currentUser } = useContext(UserContext)
     const { searchReset } = useContext(SearchContext)
     
     return (
@@ -34,7 +34,7 @@ const Nav = () => {
                     <div className='nav-right'>
                         <>
                             {
-                                currentUser ?
+                                currentUser && currentUserInfo ?
                                     <Link className='login-btn' to='/profile'>
                                         profile
                                     </Link>

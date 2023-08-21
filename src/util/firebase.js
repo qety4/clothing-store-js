@@ -1,3 +1,5 @@
+import {firebaseToken} from './.firebaseToken.js'
+
 import { initializeApp } from 'firebase/app'
 import {
     getAuth,
@@ -6,7 +8,11 @@ import {
     GoogleAuthProvider,
     createUserWithEmailAndPassword,
     signOut,
-    onAuthStateChanged
+    onAuthStateChanged,
+    setPersistence,
+    browserSessionPersistence,
+    inMemoryPersistence,
+    browserLocalPersistence
 } from 'firebase/auth'
 
 import {
@@ -18,12 +24,7 @@ import {
 
 
 const app = initializeApp({
-    apiKey: "AIzaSyCZeMliLAFzhsUf4lbLh37__YlJKbemxfY",
-    authDomain: "clothing-store-263ed.firebaseapp.com",
-    projectId: "clothing-store-263ed",
-    storageBucket: "clothing-store-263ed.appspot.com",
-    messagingSenderId: "996498456112",
-    appId: "1:996498456112:web:3e851cf0a6ccba5ebdb7f5"
+   ...firebaseToken
 });
 
 
@@ -31,16 +32,23 @@ const provider = new GoogleAuthProvider()
 export const auth = getAuth()
 
 
-
-export const signInWithGooglePopup = () => signInWithPopup(auth, provider)
-
-
 export const signInWithEmail = async (email, password) => {
-
     const userCred = await signInWithEmailAndPassword(auth, email, password)
     return userCred.user
 }
+export const signIn = async (email,password,bool)=>{
+    bool ?
+    await setPersistence(auth,browserLocalPersistence)
+    .then(()=>
+    signInWithEmail(email,password)
+    )
+    :
+    await setPersistence(auth,browserSessionPersistence)
+    .then(()=>
+    signInWithEmail(email,password))
+}
 
+export const signInWithGooglePopup = () => setPersistence(auth,browserSessionPersistence).then(()=>signInWithPopup(auth, provider))
 
 export const createAuthUser = async (email, password) => {
     
@@ -67,7 +75,7 @@ export const createUserDocumentFromAuth = async (userAuth, additionalinformation
 
 
     if (!userSnapshot.exists()) {
-        const { displayName } = userAuth || additionalinformation
+        const { displayName } = userAuth
         const { email } = userAuth
 
         const createdAt = new Date();

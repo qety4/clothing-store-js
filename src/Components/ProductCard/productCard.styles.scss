@@ -14,7 +14,6 @@
     font-size: 18px;
     gap: 0.8rem;
     height: 91%;
-
     &:hover {
         .add-to-cart-btn {
             opacity: 0.9;
@@ -46,6 +45,11 @@
     .product-text-desc {
         width: 90%;
 
+        .title-price{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+        }
         .product-title {
             letter-spacing: 0.3rem;
         }
@@ -60,10 +64,13 @@
     height: 73%;
     width: 80%;
     padding: 1rem 0.9rem 1rem 0.9rem;
-    border-radius: 3px;
     z-index: 1;
-    box-shadow: 0rem 0.18rem 0.9rem rgba(0, 0, 0, 0.599);
-    border: 0.1px solid rgba(0, 0, 0, 0.891);
+    transition: .2s ease-out;
+    &:hover{
+        border-radius: 0.3rem;
+        box-shadow: -0.03rem 0.1rem 0.3rem rgba(0, 0, 0, 0.221);
+    }
+    
 }
 
 @media(max-width:$resp-product) {
